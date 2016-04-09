@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_settings">Settings</string>
+    <string name="drawer_op_lista_negra">Sms black list</string>
+    <string name="add_bl_tittle">Add number from:</string>
+    <string name="added_blacklist">was already added</string>
+    <string name="delete_blacklist">Deleted from list</string>
+    <string name="drawer_op_call_log">Call log</string>
+    <string name="drawer_op_contactos">Contacts</string>
+    <string name="drawer_op_inbox">Inbox</string>
+    <string name="empty_sms_bl_msg">No data to show\n Add a number to block incoming sms</string>
+    <string name="select_blacklist">Select a record</string>
+    <string name="spiner_prompt_text"></string>
+    <string name="title_activity_new_black_list_entry">New Message</string>
+    <string name="add_blacklist">added</string>
+    <string name="drawer_help_menu">About</string>
+    <string name="usa">United States</string>
+    <string name="verifica_operador_msg">Enter the phone number to verify your operator</string>
+    <string name="notification">Cerberus SMS need to be your default SMS application to eliminate unwanted incoming messages:</string>
+    <string name="drawer_operator_menu">Check Operator</string>
+    <string name="app_name">Check Operator Nicaragua</string>
+    <string name="cargando">Loading..</string>
+
+    <string-array name="opciones_contacto">
+        <item>Call</item>
+        <item>Write a sms</item>
+        <!--<item>Block incoming sms</item>
+        <item>Delete</item>-->
+    </string-array>
+
+    <string-array name="opciones_contacto2">
+        <item>Call</item>
+        <item>Write a sms</item>
+        <!--<item>Block incoming sms</item>-->
+    </string-array>
+
+    <string-array name="opciones_blocksms">
+        <item>Unlock</item>
+    </string-array>
+    <string name="numero_telef">Phone number</string>
+    <string name="new_sms_dest">Name or number</string>
+    <string name="new_sms_body">Write your message</string>
+    <string name="cancelar">Cancel</string>
+    <string name="enviar">Send</string>
+    <string name="mensaje">Message:</string>
+    <string name="para">To:</string>
+    <string name="version_warning">Set as default sms application</string>
+    <string name="Licence">Cerberus sms by Eder Xavier Rojas L. is distributed under a Creative Commons Attribution-Noncommercial-Share Alike 4.0 International.</string>
+
+    <string name="about">
+        <b>Features</b>
+         <b> 1- Check operator</b>\n \n
+        It is an application intended mainly for visitors from Nicaragua
+     because one of its main functions is to identify the network operator that owns the contact or phone number
+     specific. \n \n
+        <b> 1- Country codes</b>\n \n
+        It may identify some country codes from america and europe. \n \n
+        <!--
+                <b> 2- Blocking text messages (SMS) \n\n </b>
+             \t -Offers the ability to block incoming text messages from numbers that send unwanted propaganda, this functionality is
+             indifferent of the country where the user resides. \n
+
+            \t -In versions greater than or equal to kitkat is necessary to set as the default application for managing text messages to <b> Cerbero sms </b>, because
+             only the application to be established in this way may remove the unwanted messages. \n
+                \t - <b> Cerberus sms </b> provides the basic functionality for texting \n.
+             \t - <b> Cerberus sms </b> does not store copies of the messages that have been blocked \n.
+             \t <b> Cerberus sms </b> not notified in any way that a message has been blocked. \n
+             \t <b> Cerberus sms </b> provides a count of sms that have been blocked for every specified number blacklisted. \n
+        -->
+    </string>
+    <string name="elimianr_msg">Delete conversation?</string>
+    <string name="eliminar">Delete</string>
+    <string name="eliminar_msg2">It was not possible to eliminate the conversation</string>
+
+</resources>

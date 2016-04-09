@@ -1,0 +1,104 @@
+<resources>
+    <string name="app_name">Verifica Operador Nicaragua</string>
+    <string name="dev_mail" translatable="false">edxavier05@gmail.com</string>
+    <string name="action_settings">Preferencias</string>
+
+    <string name="drawer_op_lista_negra">Bloqueo sms</string>
+    <string name="empty_sms_bl_msg">No hay datos que mostrar \n Ingresa un número para bloquear los sms entrantes</string>
+    <string name="verifica_operador_msg">Introduce el número telefónico para verificar su operador</string>
+
+
+    <string name="drawer_op_contactos">Mis Contactos</string>
+    <string name="drawer_op_inbox">Bandeja de entrada</string>
+    <string name="drawer_op_call_log">Historial de llamadas</string>
+
+    <string name="add_bl_tittle">Agregar número de:</string>
+    <string name="delete_blacklist">Eliminado de la lista: </string>
+    <string name="select_blacklist">Selecciona un registro </string>
+    <string name="added_blacklist"> ya fue añadido  anteriormente</string>
+    <string name="add_blacklist"> añadido </string>
+
+    <string name="notification"> Cerbero sms necesita ser tu aplicación de sms predeterminada para poder eliminar mensajes entrantes no deseados de: </string>
+
+    <string name="spiner_prompt_text" translatable="false">Metodo de entrada</string>
+    <string-array name="bl_entry_arrays">
+        <item>Contactos</item>
+        <item>Bandeja de entrada</item>
+        <item>Historial de llamadas</item>
+    </string-array>
+
+    <string name="usa">Estados Unidos</string>
+    <string name="ca" translatable="false">California</string>
+    <string name="fl" translatable="false">Florida</string>
+
+    <string-array name="opciones_contacto">
+        <item>Llamar</item>
+        <item>Escribir sms</item>
+        <!--<item>Bloquear sms entrantes</item>
+        <item>Eliminar</item>-->
+    </string-array>
+
+    <string-array name="opciones_contacto2">
+        <item>Llamar</item>
+        <item>Escribir sms</item>
+        <!--<item>Bloquear sms entrantes</item>-->
+    </string-array>
+
+    <string-array name="opciones_blocksms">
+        <item>Desbloquear</item>
+    </string-array>
+
+
+    <string name="drawer_operator_menu">Verificar Operador</string>
+    <string name="drawer_help_menu">Acerca de</string>
+    <string name="Licence">
+        Verificar Operador Nicaragua se distribuye bajo una Licencia Creative Commons Atribución-NoComercial-CompartirIgual 4.0 Internacional.
+    </string>
+    <string name="version_warning">Establecer como aplicacion sms por defecto</string>
+
+    <string name="eliminar">Eliminar </string>
+    <string name="elimianr_msg">¿Eliminar la conversacion?</string>
+    <string name="eliminar_msg2">No fue posible eliminar la conversacion</string>
+
+    <string name="cargando">Cargando...</string>
+    <string name="new_sms_dest">Nombre o número</string>
+    <string name="enviar">Enviar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="para">Para:</string>
+    <string name="mensaje">Mensaje:</string>
+    <string name="new_sms_body">Escribe tu mensaje</string>
+    <string name="numero_telef">Número telefonico</string>
+
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="title_activity_new_black_list_entry">Nuevo mensaje</string>
+    <string name="title_activity_detail_conversation" translatable="false">DetailConversation</string>
+
+    <string name="id_banner1" translatable="false">ca-app-pub-9964109306515647/5364572210</string>
+
+
+    <string name="about">
+        <b>Consideraciones de uso</b>\n\n
+    <b>1- Verificar operador \n\n</b>
+    Es una aplicación principalmente dirigida a usuarios residentes en Nicaragua
+    debido a que una de su funcion principal es identificar el operador telefónico al que pertenecen los contactos o un número telefónico
+    especifico. \n\n
+        <b>2- Codigo pais \n\n</b>
+        Identificar ciertos codigos de paises como: USA, paises latino americanos y algunos erupeos
+        <b>3- Departamento (Solo en Nicaragua)\n\n</b>
+        Identificar a que departamento pertenece un numero fijo.
+    <!--
+    <b>2- Bloqueo de mensajes de texto (sms)\n\n</b>
+    \t - <b>Cerbero sms</b> ofrece la facilidad de bloquear mensajes de texto entrantes de números que envían propaganda indeseada, esta funcionalidad es
+    indiferente del país en que resida el usuario. \n
+
+    \t -En versiones mayores o iguales a kitkat es necesario establecer como aplicación predeterminada para el manejo de mensajes de texto a <b>Cerbero sms</b>, debido a
+    que únicamente la aplicación que se establezca de esta manera podrá eliminar los mensajes no deseados. \n
+       \t - <b>Cerbero sms</b> proporciona la funcionalidad basica para enviar mensajes de texto.\n
+    \t - <b>Cerbero sms</b> no almacena copia de los mensajes que han sido bloqueados.\n
+    \t- <b>Cerbero sms</b> no notificara de ninguna manera que un mensaje ha sido bloqueado.\n
+    \t- <b>Cerbero sms</b> proporciona un conteo de sms que han  sido bloqueados por cada número especificado en la lista negra.\n
+    -->
+    </string>
+
+</resources>
+
