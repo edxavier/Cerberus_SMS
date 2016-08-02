@@ -1,6 +1,7 @@
 package com.edxavier.cerberus_sms.db.adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,7 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Filter;
 
 import com.edxavier.cerberus_sms.R;
-import com.edxavier.cerberus_sms.db.models.AreaCode;
+import com.edxavier.cerberus_sms.db.entities.AreaCode;
+import com.edxavier.cerberus_sms.db.entities.PersonalContact;
 import com.edxavier.cerberus_sms.db.models.Contactos;
 import com.edxavier.cerberus_sms.helpers.TextViewHelper;
 import com.edxavier.cerberus_sms.helpers.Utils;
@@ -19,22 +21,22 @@ import java.util.List;
 /**
  * Created by Eder Xavier Rojas on 13/11/2015.
  */
-public class ContactAdapter extends ArrayAdapter<Contactos> {
+public class ContactAdapter extends ArrayAdapter<PersonalContact> {
     Context context;
     int resource, textViewResourceId;
-    List<Contactos> items, tempItems, suggestions;
+    List<PersonalContact> items, tempItems, suggestions;
     TextViewHelper cNombre;
     TextViewHelper cNumero;
     TextViewHelper cOperador;
 
-    public ContactAdapter(Context context, int resource, int textViewResourceId, List<Contactos> items) {
+    public ContactAdapter(Context context, int resource, int textViewResourceId, List<PersonalContact> items) {
         super(context, resource, textViewResourceId, items);
         this.context = context;
         this.resource = resource;
         this.textViewResourceId = textViewResourceId;
         this.items = items;
-        tempItems = new ArrayList<Contactos>(items); // this makes the difference.
-        suggestions = new ArrayList<Contactos>();
+        tempItems = new ArrayList<PersonalContact>(items); // this makes the difference.
+        suggestions = new ArrayList<PersonalContact>();
     }
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -43,23 +45,25 @@ public class ContactAdapter extends ArrayAdapter<Contactos> {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(R.layout.row_contacts2, parent, false);
         }
-        Contactos people = items.get(position);
+        PersonalContact people = items.get(position);
         if (people != null) {
-            cNombre = (TextViewHelper) view.findViewById(R.id.lbl_sms_bl_contact_name);
-            cNumero = (TextViewHelper) view.findViewById(R.id.lbl_sms_bl_contact_number);
-            cOperador = (TextViewHelper) view.findViewById(R.id.lbl_sms_bl_contact_operator);
-            cNumero.setText(people.getNumero());
-            AreaCode areaCode = Utils.getOperadoraV2(people.getNumero());
+            cNombre = (TextViewHelper) view.findViewById(R.id.lbl_contact_name_auto_complete);
+            cNumero = (TextViewHelper) view.findViewById(R.id.lbl_contact_number_auto_complete);
+            cOperador = (TextViewHelper) view.findViewById(R.id.lbl_contact_operator_auto_complete);
+            cNumero.setText(people.getContact_phone_number());
+            AreaCode areaCode = Utils.getOperadoraV3(people.getContact_phone_number(), context);
             if(areaCode!=null) {
                 cOperador.setText(areaCode.getArea_operator());
                 if (areaCode.getArea_operator().equals("Claro"))
-                    cOperador.setTextColor(context.getResources().getColor(R.color.md_red_500));
+                    cOperador.setTextColor(context.getResources().getColor(R.color.md_red_600));
                 else if (areaCode.getArea_operator().equals("Movistar"))
-                    cOperador.setTextColor(context.getResources().getColor(R.color.md_green_500));
+                    cOperador.setTextColor(context.getResources().getColor(R.color.md_green_600));
+                else if (areaCode.getArea_operator().equals("CooTel"))
+                    cOperador.setTextColor(context.getResources().getColor(R.color.md_amber_700));
             }
 
             if (cNombre != null)
-                cNombre.setText(people.getNombre());
+                cNombre.setText(people.getContact_name());
         }
         return view;
     }
@@ -75,17 +79,16 @@ public class ContactAdapter extends ArrayAdapter<Contactos> {
     Filter nameFilter = new Filter() {
         @Override
         public CharSequence convertResultToString(Object resultValue) {
-            String str = ((Contactos) resultValue).getNumero();
-            return str;
+            return ((PersonalContact) resultValue).getContact_phone_number();
         }
 
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
             if (constraint != null) {
                 suggestions.clear();
-                for (Contactos people : tempItems) {
-                    if (people.getNombre().toLowerCase().contains(constraint.toString().toLowerCase()) ||
-                            people.getNumero().toLowerCase().contains(constraint.toString().toLowerCase())) {
+                for (PersonalContact people : tempItems) {
+                    if (people.getContact_name().toLowerCase().contains(constraint.toString().toLowerCase()) ||
+                            people.getContact_phone_number().toLowerCase().contains(constraint.toString().toLowerCase())) {
                         suggestions.add(people);
                     }
                 }
@@ -100,10 +103,10 @@ public class ContactAdapter extends ArrayAdapter<Contactos> {
 
         @Override
         protected void publishResults(CharSequence constraint, FilterResults results) {
-            List<Contactos> filterList = (ArrayList<Contactos>) results.values;
-            if (results != null && results.count > 0) {
+            List<PersonalContact> filterList = (ArrayList<PersonalContact>) results.values;
+            if (results.count > 0) {
                 clear();
-                for (Contactos people : filterList) {
+                for (PersonalContact people : filterList) {
                     add(people);
                     notifyDataSetChanged();
                 }
@@ -112,3 +115,4 @@ public class ContactAdapter extends ArrayAdapter<Contactos> {
     };
 
 }
+

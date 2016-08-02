@@ -40,4 +40,12 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="Counter" parent="TextAppearance.Design.Counter">
+        <item name="android:textColor">@color/md_blue_grey_600</item>
+    </style>
+
+    <style name="CounterOverFlow" parent="TextAppearance.Design.Counter.Overflow">
+        <item name="android:textColor">@color/md_red_500_75</item>
+    </style>
+
 </resources>

@@ -23,11 +23,8 @@ import com.activeandroid.ActiveAndroid;
 import com.activeandroid.query.Select;
 import com.edxavier.cerberus_sms.db.models.AreaCode;
 import com.edxavier.cerberus_sms.fragments.AcercadeFragment;
-import com.edxavier.cerberus_sms.fragments.Call_Log_fragment;
-import com.edxavier.cerberus_sms.fragments.Contacts_fragment;
-import com.edxavier.cerberus_sms.fragments.Inbox_fragment;
 import com.edxavier.cerberus_sms.fragments.OperadorFragment;
-import com.edxavier.cerberus_sms.helpers.Cerberus_Asynctasks;
+import com.edxavier.cerberus_sms.helpers.InitDatabaseAsynctasks;
 import com.edxavier.cerberus_sms.helpers.TextViewHelper;
 import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.HitBuilders;
@@ -98,10 +95,10 @@ public class MainActivity extends AppCompatActivity {
         Log.d("EDER_CCV4", simCodeValue3);
         Log.d("EDER_CCV4", simCodeValue3);*/
 
-        //Cerberus_Asynctasks tarea = new Cerberus_Asynctasks();
+        //InitDatabaseAsynctasks tarea = new InitDatabaseAsynctasks();
         if(new Select().from(AreaCode.class).count()<=0) {
             //AsyncContacts asyncContacts = new AsyncContacts();
-            Cerberus_Asynctasks asynctasks = new Cerberus_Asynctasks();
+            InitDatabaseAsynctasks asynctasks = new InitDatabaseAsynctasks();
             Toast.makeText(this,"Inicializando datos de aplicacion...",Toast.LENGTH_LONG).show();
             asynctasks.execute(this);
             //asyncContacts.execute(this);
@@ -155,20 +152,13 @@ public class MainActivity extends AppCompatActivity {
                                 menuItem.setChecked(true);
                                 drawerLayout.closeDrawer(GravityCompat.START);
                                 toolbar.setTitle(menuItem.getTitle());
-                                Inbox_fragment inbox = new Inbox_fragment();
-                                fragmentManager.beginTransaction()
-                                        .replace(R.id.fragmentContainer, inbox)
-                                        .commit();
                                 return true;
 
-                            case R.id.item_navigation_drawer_settings:
+                            case R.id.item_navigation_contacts:
                                 menuItem.setChecked(true);
                                 toolbar.setTitle(menuItem.getTitle());
                                 drawerLayout.closeDrawer(GravityCompat.START);
-                                Contacts_fragment contacts_fragment = new Contacts_fragment();
-                                fragmentManager.beginTransaction()
-                                        .replace(R.id.fragmentContainer, contacts_fragment)
-                                        .commit();
+
                                 //Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
                                 //startActivity(intent);
                                 return true;
@@ -185,13 +175,10 @@ public class MainActivity extends AppCompatActivity {
                                 menuItem.setChecked(true);
                                 toolbar.setTitle(menuItem.getTitle());
                                 drawerLayout.closeDrawer(GravityCompat.START);
-                                Call_Log_fragment callLogFragment = new Call_Log_fragment();
-                                fragmentManager.beginTransaction()
-                                        .replace(R.id.fragmentContainer, callLogFragment)
-                                        .commit();
+
                                 return true;
 
-                            case R.id.item_navigation_drawer_operador:
+                            case R.id.item_navigation_drawer_check_operador:
                                 menuItem.setChecked(true);
                                 toolbar.setTitle(menuItem.getTitle());
                                 drawerLayout.closeDrawer(GravityCompat.START);

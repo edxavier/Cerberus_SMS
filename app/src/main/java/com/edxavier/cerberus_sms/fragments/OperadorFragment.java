@@ -21,7 +21,7 @@ import com.activeandroid.query.Select;
 import com.edxavier.cerberus_sms.MainActivity;
 import com.edxavier.cerberus_sms.R;
 import com.edxavier.cerberus_sms.db.adapters.ContactAdapter;
-import com.edxavier.cerberus_sms.db.models.AreaCode;
+import com.edxavier.cerberus_sms.db.entities.AreaCode;
 import com.edxavier.cerberus_sms.db.models.Contactos;
 import com.edxavier.cerberus_sms.helpers.TextViewHelper;
 import com.edxavier.cerberus_sms.helpers.Utils;
@@ -46,7 +46,7 @@ public class OperadorFragment extends Fragment implements TextWatcher {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         setHasOptionsMenu(true);
-        return inflater.inflate(R.layout.fragment_operador, container, false);
+        return inflater.inflate(R.layout.fragment_check_operador, container, false);
     }
 
     @Override
@@ -76,10 +76,10 @@ public class OperadorFragment extends Fragment implements TextWatcher {
         //for(Contactos c: result)
 
         //ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,result);
-        ContactAdapter adapter = new ContactAdapter(getActivity(),R.layout.create_message_activity,R.id.lbl_sms_bl_contact_name,result);
+        //ContactAdapter adapter = new ContactAdapter(getActivity(),R.layout.create_message_activity,R.id.lbl_contact_name,result);
 
         autoComplete.setThreshold(2);
-        autoComplete.setAdapter(adapter);
+        //autoComplete.setAdapter(adapter);
         autoComplete.addTextChangedListener(this);
         //autoComplete.setOnItemClickListener(getActivity());
 

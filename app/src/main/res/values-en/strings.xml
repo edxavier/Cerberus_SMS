@@ -10,12 +10,11 @@
     <string name="drawer_op_inbox">Inbox</string>
     <string name="empty_sms_bl_msg">No data to show\n Add a number to block incoming sms</string>
     <string name="select_blacklist">Select a record</string>
-    <string name="spiner_prompt_text"></string>
     <string name="title_activity_new_black_list_entry">New Message</string>
     <string name="add_blacklist">added</string>
     <string name="drawer_help_menu">About</string>
     <string name="usa">United States</string>
-    <string name="verifica_operador_msg">Enter the phone number to verify your operator</string>
+    <string name="verifica_operador_msg">Enter the phone number or contact name to verify your operator</string>
     <string name="notification">Cerberus SMS need to be your default SMS application to eliminate unwanted incoming messages:</string>
     <string name="drawer_operator_menu">Check Operator</string>
     <string name="app_name">Check Operator Nicaragua</string>
@@ -37,7 +36,17 @@
     <string-array name="opciones_blocksms">
         <item>Unlock</item>
     </string-array>
-    <string name="numero_telef">Phone number</string>
+
+    <string-array name="delete_contact_options">
+        <item>Delete from Phone contact list</item>
+    </string-array>
+
+    <string-array name="save_contact_options">
+        <item>Save on Phone contact list</item>
+    </string-array>
+
+
+    <string name="numero_telef">Phone number or contact name</string>
     <string name="new_sms_dest">Name or number</string>
     <string name="new_sms_body">Write your message</string>
     <string name="cancelar">Cancel</string>
@@ -48,28 +57,79 @@
     <string name="Licence">Cerberus sms by Eder Xavier Rojas L. is distributed under a Creative Commons Attribution-Noncommercial-Share Alike 4.0 International.</string>
 
     <string name="about">
-        <b>Features</b>
-         <b> 1- Check operator</b>\n \n
-        It is an application intended mainly for visitors from Nicaragua
-     because one of its main functions is to identify the network operator that owns the contact or phone number
-     specific. \n \n
-        <b> 1- Country codes</b>\n \n
-        It may identify some country codes from america and europe. \n \n
-        <!--
-                <b> 2- Blocking text messages (SMS) \n\n </b>
-             \t -Offers the ability to block incoming text messages from numbers that send unwanted propaganda, this functionality is
-             indifferent of the country where the user resides. \n
+       <b>About application</b>\n\n
+    <b>What does it do? \n\n</b>
+    This application was created to help you identify easily and quickly what mobile operator (CooTel, Claro, Movistar) belongs to a number of cellular.\n
+        This objective can be achieved in different ways: \n\n
+        1- Manually type the phone number on the application.\n
+        2- Will show your contact list identifying the operator that owns each of their phone numbers.\n
+        3- Identifies the operator that owns each of the phone numbers in your call log.\n
+        4- Identifies the operator that owns each of the phone numbers in your inbox.\n
+        5- The operator identifies incoming and outgoing calls in real time.\n\n
+        <b>Other functions:s\n\n</b>
+        6- Identifies these country codes such as USA, Latin countries and some European\n
+        7- Department identifies it belongs to a conventional number (in Nicaragua only)\n\n
 
-            \t -In versions greater than or equal to kitkat is necessary to set as the default application for managing text messages to <b> Cerbero sms </b>, because
-             only the application to be established in this way may remove the unwanted messages. \n
-                \t - <b> Cerberus sms </b> provides the basic functionality for texting \n.
-             \t - <b> Cerberus sms </b> does not store copies of the messages that have been blocked \n.
-             \t <b> Cerberus sms </b> not notified in any way that a message has been blocked. \n
-             \t <b> Cerberus sms </b> provides a count of sms that have been blocked for every specified number blacklisted. \n
-        -->
+        <b>Security policy \n\n</b>
+        The application requires synchronized with your list of contacts, inbox and call log to show
+a list of each of the aforementioned where identified effortlessly operator belongs to each number
+found.
+ \n\n
+
+      The data used by the application, phone numbers specifically, are only for internal use by the application.
     </string>
     <string name="elimianr_msg">Delete conversation?</string>
     <string name="eliminar">Delete</string>
     <string name="eliminar_msg2">It was not possible to eliminate the conversation</string>
-
+    <string name="empty_contacts_msg">No contacts to display \n This may be due to not assign permissions to read your contact list or because your contact list is empty</string>
+    <string name="contacts_info_loading">Loading contacts...</string>
+    <string name="search_contact_toolbar">Search contact</string>
+    <string name="llamar">Call</string>
+    <string name="escribir">Write sms</string>
+    <string name="contact_name">Name</string>
+    <string name="name_hint">First and last name</string>
+    <string name="new_contact">New contact</string>
+    <string name="phone_hint">Phone number</string>
+    <string name="save">Save</string>
+    <string name="agree">Continue</string>
+    <string name="contact_saved_msg">Contact saved!</string>
+    <string name="delete_contact">Delete contact</string>
+    <string name="share_contact">Share</string>
+    <string name="share_using">Share using:</string>
+    <string name="delete_contact_warning">This will erase the contact of the application, if the same exists in your phone list will reappear the next time you load the contacts because the app syncs with your phone list, if you want to delete permanently, be sure to delete it first your original contacts list.</string>
+    <string name="empty_contacts_list">Your contact list is empty!</string>
+    <string name="no_read_perms">No contacts read permissions!</string>
+    <string name="save_info">Information!</string>
+    <string name="save_info_extended">The new contact was created on your phone contacts list</string>
+    <string name="delete_contact_error">An error occurred while trying to delete the contact from your phonebook</string>
+    <string name="more_detail">Details</string>
+    <string name="save_on_phone_agent">Save contact on phonebook</string>
+    <string name="contact_exist">This phone number already exist on your phonebook!</string>
+    <string name="no_write_permissions">No create o delete contacts persmissions!</string>
+    <string name="call_log_info_loading">Loading call log..</string>
+    <string name="call_msg_atempt">Enter at least 3 digits to make call.</string>
+    <string name="outgoing_call_msg">Calling to:</string>
+    <string name="incoming_call_msg">Call from:</string>
+    <string name="empty_call_log_msg">No records to show!</string>
+    <string name="empty_messages_msg">No messages to show!</string>
+    <string name="messages_info_loading">Loading messages...</string>
+    <string name="no_sms_perms">No permissions to read messages!</string>
+    <string name="sync_contacts_msg">Synchronizing contacts...</string>
+    <string name="alert_info">The application needs permission to display a window that is drawn above all others when making or receiving a call, this window will show the operator the number with which you will communicate.</string>
+    <string name="calls_perms_info">The application requires permission to synchronize with your call log. This information is only for internal use by the application. If you agree press OK.</string>
+    <string name="contact_perms_info">The application requires read your contacts to sync with your phonebook, this information is only for internal use by the application.</string>
+    <string name="continue_delete">Continue</string>
+    <string name="delete_records">Delete Records</string>
+    <string name="delete_records_warning">This action will delete all records of the application. If this is what you really want press: Continue.</string>
+    <string name="info">Infotmation</string>
+    <string name="perm_denied">Permission denied!</string>
+    <string name="share_app_msg">\nIdentifies the operator that owns a cell in Nicaragua easily with this app.\n\n</string>
+    <string name="sms_msg_atempt">Enter at least 3 digits to try to send the SMS</string>
+    <string name="sms_perms_info">The application requires permission to read your SMS, this information is for internal use only application.</string>
+    <string name="sync_msg">Syncing ...</string>
+    <string-array name="bl_entry_arrays">
+        <item>Contacts</item>
+        <item>Inbox</item>
+        <item>Call log</item>
+    </string-array>
 </resources>

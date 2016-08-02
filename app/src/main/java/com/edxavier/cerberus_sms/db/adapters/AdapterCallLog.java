@@ -11,9 +11,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.afollestad.materialdialogs.MaterialDialog;
+//import com.afollestad.materialdialogs.MaterialDialog;
 import com.edxavier.cerberus_sms.R;
-import com.edxavier.cerberus_sms.db.models.AreaCode;
+import com.edxavier.cerberus_sms.db.entities.AreaCode;
 import com.edxavier.cerberus_sms.db.models.Call_Log;
 import com.edxavier.cerberus_sms.db.models.Sms_Lock;
 import com.edxavier.cerberus_sms.helpers.TextViewHelper;
@@ -113,13 +113,14 @@ public class AdapterCallLog extends RecyclerView.Adapter<AdapterCallLog.ViewHold
         else if(call_log.getType()== CallLog.Calls.INCOMING_TYPE)
             holder.icon.setImageResource(R.drawable.ic_down_left_filled_100);
         else if(call_log.getType()== CallLog.Calls.MISSED_TYPE)
-            holder.icon.setImageResource(R.drawable.ic_call_missed);
+            holder.icon.setImageResource(R.drawable.ic_action_communication_call_made);
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 final Call_Log call_log = call_logs.get(holder.getAdapterPosition());
+                /*
                 new MaterialDialog.Builder(v.getContext())
                         .title(call_log.getName())
                         .typeface("Roboto-Medium.ttf", "Roboto-Regular.ttf")
@@ -152,6 +153,7 @@ public class AdapterCallLog extends RecyclerView.Adapter<AdapterCallLog.ViewHold
                             }
                         })
                         .show();
+                        */
             }
         });
 

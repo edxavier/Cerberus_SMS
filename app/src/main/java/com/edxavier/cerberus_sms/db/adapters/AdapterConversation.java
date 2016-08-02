@@ -1,8 +1,6 @@
 package com.edxavier.cerberus_sms.db.adapters;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.net.Uri;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,14 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
-import com.afollestad.materialdialogs.DialogAction;
-import com.afollestad.materialdialogs.MaterialDialog;
+//import com.afollestad.materialdialogs.DialogAction;
+//import com.afollestad.materialdialogs.MaterialDialog;
 import com.edxavier.cerberus_sms.R;
-import com.edxavier.cerberus_sms.db.models.AreaCode;
+import com.edxavier.cerberus_sms.db.entities.AreaCode;
 import com.edxavier.cerberus_sms.db.models.Conversation;
-import com.edxavier.cerberus_sms.db.models.Sms_Lock;
 import com.edxavier.cerberus_sms.helpers.Constans;
 import com.edxavier.cerberus_sms.helpers.TextViewHelper;
 import com.edxavier.cerberus_sms.helpers.Utils;
@@ -61,14 +57,14 @@ public class AdapterConversation extends RecyclerView.Adapter<AdapterConversatio
 
         public ViewHolder(final View viewLayout) {
             super(viewLayout);
-            txtContactName = (TextViewHelper) viewLayout.findViewById(R.id.lbl_sms_sender_name);
+            txtContactName = (TextViewHelper) viewLayout.findViewById(R.id.sender_name);
             txtPhone = (TextViewHelper) viewLayout.findViewById(R.id.lbl_sms_sender_number);
             txtOperator = (TextViewHelper) viewLayout.findViewById(R.id.lbl_sms_operator);
-            txtBody = (TextViewHelper) viewLayout.findViewById(R.id.lbl_sms_body);
+            txtBody = (TextViewHelper) viewLayout.findViewById(R.id.msg_body);
             txtFecha = (TextViewHelper) viewLayout.findViewById(R.id.lbl_sms_date);
             txtTime = (TextViewHelper) viewLayout.findViewById(R.id.lbl_sms_time);
             txtNewMsgs = (TextViewHelper) viewLayout.findViewById(R.id.new_messages);
-            txtMsgsCount = (TextViewHelper) viewLayout.findViewById(R.id.lbl_conversation_num_sms);
+            txtMsgsCount = (TextViewHelper) viewLayout.findViewById(R.id.conversation_sms_count);
             warning = (ImageView) viewLayout.findViewById(R.id.img_send_failures);
 
             cardView = (CardView) viewLayout.findViewById(R.id.sms_bl_cardviewRow);
@@ -166,7 +162,7 @@ public class AdapterConversation extends RecyclerView.Adapter<AdapterConversatio
             @Override
             public boolean onLongClick(View v) {
                 final Conversation sms = inboxSms_list.get(holder.getAdapterPosition());
-                new MaterialDialog.Builder(v.getContext())
+               /* new MaterialDialog.Builder(v.getContext())
                         .title(sms.getName())
                         .typeface("Roboto-Medium.ttf", "Roboto-Regular.ttf")
                         .items(R.array.opciones_contacto)
@@ -217,7 +213,7 @@ public class AdapterConversation extends RecyclerView.Adapter<AdapterConversatio
                                 }
                             }
                         })
-                        .show();
+                        .show();*/
                 return true;
             }
         });

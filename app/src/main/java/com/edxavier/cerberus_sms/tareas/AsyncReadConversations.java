@@ -80,8 +80,8 @@ public class AsyncReadConversations extends AsyncTask<Context, Conversation, Arr
                     }
                         //(conversation.save();
                         conversations.add(conversation);
-                        //conversations_temp.add(conversation);
-                        //conversations_temp.add(0,conversation);
+                        //conversations_temp.refresh(conversation);
+                        //conversations_temp.refresh(0,conversation);
                     publishProgress(conversation);
                 }
                 cursor.close();
@@ -92,7 +92,7 @@ public class AsyncReadConversations extends AsyncTask<Context, Conversation, Arr
             Log.d("EDER2", e.getMessage());
         }
         //for(int i=conversations_temp.size()-1;i>=0;i--)
-        //  conversations.add(conversations_temp.get(i));
+        //  conversations.refresh(conversations_temp.get(i));
         return conversations;
         //return conversations_temp;
         //return null;

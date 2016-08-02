@@ -59,7 +59,7 @@ public class SmsReceiver extends BroadcastReceiver {
                         PendingIntent pIntent = PendingIntent.getActivity(context, (int) System.currentTimeMillis(), intent4, 0);
                         Notification n = new Notification.Builder(context)
                                 .setContentTitle("Advertencia de bloqueo")
-                                .setSmallIcon(R.drawable.error_filled_50)
+                                //.setSmallIcon(R.drawable.error_filled_50)
                                 .setSound(soundUri)
                                 .setAutoCancel(true)
                                 .addAction(R.drawable.ic_support_50, "Establecer", pIntent)
@@ -71,7 +71,7 @@ public class SmsReceiver extends BroadcastReceiver {
                         n.flags |= Notification.FLAG_AUTO_CANCEL;
 
                         NotificationManager notificationManager =
-                                (NotificationManager) context.getSystemService(context.NOTIFICATION_SERVICE);
+                                (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
                         notificationManager.notify(1, n);
 
                     }
@@ -111,7 +111,7 @@ public class SmsReceiver extends BroadcastReceiver {
                             //n.flags = Notification.FLAG_SHOW_LIGHTS | Notification.FLAG_AUTO_CANCEL | Notification.FLAG_ONLY_ALERT_ONCE;
                             //n.flags = Notification.FLAG_AUTO_CANCEL | Notification.FLAG_ONLY_ALERT_ONCE;
                             NotificationManager notificationManager =
-                                    (NotificationManager) context.getSystemService(context.NOTIFICATION_SERVICE);
+                                    (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
                             notificationManager.notify(10, n);
                         //n.flags |= Notification.FLAG_AUTO_CANCEL;
                         abortBroadcast();

@@ -32,7 +32,7 @@
                     android:padding="8dp">
 
                     <com.edxavier.cerberus_sms.helpers.TextViewHelper
-                        android:id="@+id/lbl_sms_bl_contact_name"
+                        android:id="@+id/lbl_contact_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="16sp"
@@ -41,7 +41,7 @@
                         />
 
                     <com.edxavier.cerberus_sms.helpers.TextViewHelper
-                        android:id="@+id/lbl_sms_bl_contact_number"
+                        android:id="@+id/lbl_contact_number"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/md_deep_orange_500"
@@ -59,7 +59,7 @@
                     android:padding="8dp">
 
                     <com.edxavier.cerberus_sms.helpers.TextViewHelper
-                        android:id="@+id/lbl_sms_bl_contact_operator"
+                        android:id="@+id/lbl_contact_operator"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/md_green_400"

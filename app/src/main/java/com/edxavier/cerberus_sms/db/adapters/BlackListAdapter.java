@@ -1,20 +1,15 @@
 package com.edxavier.cerberus_sms.db.adapters;
 
-import android.content.ClipData;
-import android.content.Intent;
-import android.net.Uri;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
-import com.activeandroid.query.Delete;
-import com.afollestad.materialdialogs.MaterialDialog;
+//import com.activeandroid.query.Delete;
+//import com.afollestad.materialdialogs.MaterialDialog;
 import com.edxavier.cerberus_sms.R;
-import com.edxavier.cerberus_sms.db.models.AreaCode;
+import com.edxavier.cerberus_sms.db.entities.AreaCode;
 import com.edxavier.cerberus_sms.db.models.Sms_Lock;
 import com.edxavier.cerberus_sms.helpers.TextViewHelper;
 import com.edxavier.cerberus_sms.helpers.Utils;
@@ -47,9 +42,9 @@ public class BlackListAdapter  extends RecyclerView.Adapter<BlackListAdapter.Vie
 
         public ViewHolder(final View viewLayout) {
             super(viewLayout);
-            txtContactName = (TextViewHelper) viewLayout.findViewById(R.id.lbl_sms_bl_contact_name);
-            txtPhone = (TextViewHelper) viewLayout.findViewById(R.id.lbl_sms_bl_contact_number);
-            txtOperator = (TextViewHelper) viewLayout.findViewById(R.id.lbl_sms_bl_contact_operator);
+            txtContactName = (TextViewHelper) viewLayout.findViewById(R.id.lbl_contact_name);
+            txtPhone = (TextViewHelper) viewLayout.findViewById(R.id.lbl_contact_number);
+            txtOperator = (TextViewHelper) viewLayout.findViewById(R.id.lbl_contact_operator);
             txtNumBlockSms = (TextViewHelper) viewLayout.findViewById(R.id.lbl_num_locked);
             cardView = (CardView) viewLayout.findViewById(R.id.sms_bl_cardviewRow);
             txtContactName.setRobotoMedium();
@@ -98,7 +93,7 @@ public class BlackListAdapter  extends RecyclerView.Adapter<BlackListAdapter.Vie
             public void onClick(View v) {
                 adapterPosition = holder.getAdapterPosition();
                 Sms_Lock contactoLocked = sms_lockArrayList.get(adapterPosition);
-                new MaterialDialog.Builder(v.getContext())
+               /* new MaterialDialog.Builder(v.getContext())
                         .title(contactoLocked.getNombre())
                         .typeface("Roboto-Medium.ttf","Roboto-Regular.ttf")
                         .items(R.array.opciones_blocksms)
@@ -113,7 +108,7 @@ public class BlackListAdapter  extends RecyclerView.Adapter<BlackListAdapter.Vie
                                 }
                             }
                         })
-                        .show();
+                        .show();*/
             }
         });
 

@@ -61,11 +61,11 @@ public class AcercadeFragment extends Fragment {
                 try
                 { Intent i = new Intent(Intent.ACTION_SEND);
                     i.setType("text/plain");
-                    i.putExtra(Intent.EXTRA_SUBJECT, "Cerberos sms");
-                    String sAux = "\nMe gustaría recomendarte esta aplicación\n\n";
+                    i.putExtra(Intent.EXTRA_SUBJECT, getResources().getString(R.string.app_name));
+                    String sAux = getResources().getString(R.string.share_app_msg);
                     sAux = sAux + "https://play.google.com/store/apps/details?id="+ getContext().getPackageName()+" \n\n";
                     i.putExtra(Intent.EXTRA_TEXT, sAux);
-                    startActivity(Intent.createChooser(i, "Compartir por"));
+                    startActivity(Intent.createChooser(i, getResources().getString(R.string.share_using)));
                 }
                 catch(Exception e)
                 { //e.toString();
@@ -76,7 +76,7 @@ public class AcercadeFragment extends Fragment {
                 Uri uri = Uri.parse("market://details?id=" + getContext().getPackageName());
                 Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
                 // To count with Play market backstack, After pressing back button,
-                // to taken back to our application, we need to add following flags to intent.
+                // to taken back to our application, we need to refresh following flags to intent.
                 goToMarket.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY |
                         Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET |
                         Intent.FLAG_ACTIVITY_MULTIPLE_TASK);

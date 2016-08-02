@@ -1,0 +1,50 @@
+{
+  "project_info": {
+    "project_number": "282349379389",
+    "firebase_url": "https://admob-app-id-3887839019.firebaseio.com",
+    "project_id": "admob-app-id-3887839019",
+    "storage_bucket": "admob-app-id-3887839019.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:282349379389:android:8e301ced78f84100",
+        "android_client_info": {
+          "package_name": "com.edxavier.cerberus_sms"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "282349379389-9qfvdc6346l1i7lcmbg1irsltdhuc6s9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.edxavier.cerberus_sms",
+            "certificate_hash": "1A834DBB8DF4AC33B62C5982CB457D7F24DCC464"
+          }
+        },
+        {
+          "client_id": "282349379389-eo6533njbc2kiisdbqnc2u1tp57i8n8d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrNnm2kwXM0BlQHp_-JZ26AeU-9gZ44Sg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

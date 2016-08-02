@@ -4,6 +4,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 /**
  * Created by Eder Xavier Rojas on 11/11/2015.
@@ -22,6 +23,7 @@ public class ConversationSyncService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
+        Log.e("EDER", "SERVICE");
         syncThread = new SyncThread();
     }
 
@@ -30,6 +32,7 @@ public class ConversationSyncService extends Service {
         super.onStartCommand(intent, flags, startId);
         isRunning = true;
         try {
+            Log.e("EDER", "SERVICE START");
             syncThread.start();
         }catch (Exception e){
             e.printStackTrace();

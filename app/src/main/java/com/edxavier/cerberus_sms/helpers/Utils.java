@@ -11,9 +11,15 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.activeandroid.query.Select;
-import com.edxavier.cerberus_sms.db.models.AreaCode;
+import com.amulyakhare.textdrawable.TextDrawable;
+import com.amulyakhare.textdrawable.util.ColorGenerator;
+import com.edxavier.cerberus_sms.db.entities.AreaCode;
+import com.edxavier.cerberus_sms.db.entities.AreaCode_Table;
+import com.edxavier.cerberus_sms.db.entities.PersonalContact;
+import com.edxavier.cerberus_sms.db.entities.PersonalContact_Table;
 import com.edxavier.cerberus_sms.db.models.Call_Log;
 import com.edxavier.cerberus_sms.db.models.Contactos;
+import com.raizlabs.android.dbflow.sql.language.SQLite;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -45,18 +51,20 @@ public class Utils {
             }else if (numero.length() >= 3  && numero.startsWith("+3") || numero.startsWith("+4") || numero.startsWith("+8")) {
                 try{
                     codigoPais = numero.substring(0, 3);
-                }catch (Exception e){}
+                }catch (Exception ignored){}
             }else if (numero.length() >= 3  && numero.startsWith("+5")) {
                 if(!numero.startsWith("+50"))
                     codigoPais = numero.substring(0, 3);
             }else if ( numero.length() >= 4 && numero.length()<=8) {
-                Log.d("EDER","LAST");
-                TelephonyManager tm = (TelephonyManager) cntx.getSystemService(cntx.TELEPHONY_SERVICE);
+                TelephonyManager tm = (TelephonyManager) cntx.getSystemService(Context.TELEPHONY_SERVICE);
                 String countryCodeValue = tm.getSimCountryIso();
                 Log.d("EDER_CV",countryCodeValue);
                 if (countryCodeValue.equals("ni")) {
                     codigoPais = "+505";
                     codigoArea = numero.substring(0, 3);
+                }else if(countryCodeValue.equals("us")){
+                    codigoPais = "+1";
+                    codigoArea = "";
                 }
             }
 
@@ -66,18 +74,16 @@ public class Utils {
         try {
             AreaCode areaCode;
             if(codigoArea.length()>0) {
-                areaCode = new Select().from(AreaCode.class).where("country_code = ? ", codigoPais)
-                        .and("area_code = ?", codigoArea).executeSingle();
+                areaCode = SQLite.select().from(AreaCode.class).where(AreaCode_Table.country_code.eq(codigoPais))
+                        .and(AreaCode_Table.area_code.eq(codigoArea)).querySingle();
             }else{
-                areaCode = new Select().from(AreaCode.class).where("country_code = ? ", codigoPais)
-                        .executeSingle();
+                areaCode = SQLite.select().from(AreaCode.class).where(AreaCode_Table.country_code.eq(codigoPais))
+                        .querySingle();
+                areaCode.setArea_name("");
             }
             return areaCode;
 
         } catch (Exception e) {
-            e.printStackTrace();
-            Log.d("EDER_ERROR", e.getMessage());
-            Toast.makeText(cntx,e.getMessage(),Toast.LENGTH_LONG).show();
             return null;
         }
 
@@ -111,13 +117,13 @@ public class Utils {
         try {
             AreaCode areaCode;
             if(codigoArea.length()>0) {
-                areaCode = new Select().from(AreaCode.class).where("country_code = ? ", codigoPais)
-                        .and("area_code = ?", codigoArea).executeSingle();
+                //areaCode = new Select().from(AreaCode.class).where("country_code = ? ", codigoPais)
+                  //      .and("area_code = ?", codigoArea).executeSingle();
             }else{
-                areaCode = new Select().from(AreaCode.class).where("country_code = ? ", codigoPais)
-                        .executeSingle();
+                //areaCode = new Select().from(AreaCode.class).where("country_code = ? ", codigoPais)
+                  //      .executeSingle();
             }
-            return areaCode;
+            return null;//areaCode;
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -289,10 +295,11 @@ public class Utils {
     public static String getContactName(String number){
         String nombre="";
         String originalNumber = number;
-        Contactos c = new Select().from(Contactos.class).where("numero = ? ", number).executeSingle();
-
-        if(c!=null) {
-            nombre = c.getNombre();
+        PersonalContact contact = SQLite.select().from(PersonalContact.class)
+                .where(PersonalContact_Table.contact_phone_number.eq(number))
+                .querySingle();
+        if(contact!=null) {
+            nombre = contact.getContact_name();
         }else {
             if (number.length() == 14)
                 number = number.substring(5, 14);
@@ -300,10 +307,11 @@ public class Utils {
                 if(Utils.isInteger(number))
                     number = "+505 " + number;
             }
-
-            c = new Select().from(Contactos.class).where("numero = ? ", number).executeSingle();
-            if (c != null) {
-                nombre = c.getNombre();
+            contact = SQLite.select().from(PersonalContact.class)
+                    .where(PersonalContact_Table.contact_phone_number.eq(number))
+                    .querySingle();
+            if (contact != null) {
+                nombre = contact.getContact_name();
             } else
                nombre = originalNumber;
         }
@@ -328,5 +336,21 @@ public class Utils {
         }
         return "";
     }
+
+
+    public static TextDrawable getAvatar(String contact_name){
+        ColorGenerator generator = ColorGenerator.MATERIAL; // or use DEFAULT
+        if (contact_name.length() > 1)
+            contact_name = contact_name.substring(0, 2);
+        else
+            contact_name = contact_name.substring(0, 1);
+
+        int color = generator.getColor(contact_name);
+        TextDrawable drawable = TextDrawable.builder()
+                .buildRound(contact_name, color);
+
+        return drawable;
+    }
+
 }
 

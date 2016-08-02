@@ -26,7 +26,7 @@ import android.view.Window;
 import android.view.animation.OvershootInterpolator;
 import android.widget.Toast;
 
-import com.afollestad.materialdialogs.MaterialDialog;
+//import com.afollestad.materialdialogs.MaterialDialog;
 import com.edxavier.cerberus_sms.db.adapters.AdapterInbox;
 import com.edxavier.cerberus_sms.db.models.InboxSms;
 import com.edxavier.cerberus_sms.helpers.Constans;
@@ -39,7 +39,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import jp.wasabeef.recyclerview.animators.LandingAnimator;
-import jp.wasabeef.recyclerview.animators.adapters.ScaleInAnimationAdapter;
+import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter;
 
 public class DetailConversation extends AppCompatActivity implements View.OnClickListener {
 
@@ -48,7 +48,7 @@ public class DetailConversation extends AppCompatActivity implements View.OnClic
     private AdapterInbox adapter;
     ScaleInAnimationAdapter scaleInAnimationAdapter;
     AsyncReadConversations asyncReadConversations =new AsyncReadConversations();
-    MaterialDialog pgd;
+    //MaterialDialog pgd;
     String nombre, numero;
     NewsmsBroadcastReceiver receiver;
     IntentFilter filter;

@@ -5,12 +5,12 @@
 
         <item
             android:checked="true"
-            android:id="@+id/item_navigation_drawer_operador"
+            android:id="@+id/item_navigation_drawer_check_operador"
             android:icon="@drawable/ic_cellular_network_100_1"
             android:title="@string/drawer_operator_menu" />
 
         <item
-            android:id="@+id/item_navigation_drawer_settings"
+            android:id="@+id/item_navigation_contacts"
             android:icon="@drawable/ic_contacts_filled_100"
             android:title="@string/drawer_op_contactos" />
 

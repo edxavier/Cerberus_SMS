@@ -1,22 +1,19 @@
 package com.edxavier.cerberus_sms.db.adapters;
 
-import android.content.Intent;
-import android.net.Uri;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
 
-import com.afollestad.materialdialogs.MaterialDialog;
+//import com.afollestad.materialdialogs.MaterialDialog;
 import com.amulyakhare.textdrawable.TextDrawable;
 import com.amulyakhare.textdrawable.util.ColorGenerator;
 import com.edxavier.cerberus_sms.R;
-import com.edxavier.cerberus_sms.db.models.AreaCode;
+import com.edxavier.cerberus_sms.db.entities.AreaCode;
 import com.edxavier.cerberus_sms.db.models.Contactos;
-import com.edxavier.cerberus_sms.db.models.Sms_Lock;
 import com.edxavier.cerberus_sms.helpers.TextViewHelper;
 import com.edxavier.cerberus_sms.helpers.Utils;
 
@@ -44,10 +41,10 @@ public class AdapterContactos extends RecyclerView.Adapter<AdapterContactos.View
 
         public ViewHolder(final View viewLayout) {
             super(viewLayout);
-            txtContactName = (TextViewHelper) viewLayout.findViewById(R.id.lbl_sms_bl_contact_name);
-            txtPhone = (TextViewHelper) viewLayout.findViewById(R.id.lbl_sms_bl_contact_number);
-            txtOperator = (TextViewHelper) viewLayout.findViewById(R.id.lbl_sms_bl_contact_operator);
-            txtCountry = (TextViewHelper) viewLayout.findViewById(R.id.lbl_sms_bl_contact_country);
+            txtContactName = (TextViewHelper) viewLayout.findViewById(R.id.lbl_contact_name);
+            txtPhone = (TextViewHelper) viewLayout.findViewById(R.id.lbl_contact_number);
+            txtOperator = (TextViewHelper) viewLayout.findViewById(R.id.lbl_contact_operator);
+            txtCountry = (TextViewHelper) viewLayout.findViewById(R.id.lbl_contact_country);
             cardView = (CardView) viewLayout.findViewById(R.id.sms_bl_cardviewRow);
             avatar = (ImageView) viewLayout.findViewById(R.id.contact_avatar);
             txtContactName.setRobotoMedium();
@@ -116,7 +113,7 @@ public class AdapterContactos extends RecyclerView.Adapter<AdapterContactos.View
             @Override
             public void onClick(View v) {
                 final Contactos contacto = contactos_list.get(holder.getAdapterPosition());
-                new MaterialDialog.Builder(v.getContext())
+               /* new MaterialDialog.Builder(v.getContext())
                         .title(contacto.getNombre())
                         .typeface("Roboto-Medium.ttf", "Roboto-Regular.ttf")
                         .items(R.array.opciones_contacto2)
@@ -148,7 +145,7 @@ public class AdapterContactos extends RecyclerView.Adapter<AdapterContactos.View
                                 }
                             }
                         })
-                        .show();
+                        .show();*/
             }
         });
 
